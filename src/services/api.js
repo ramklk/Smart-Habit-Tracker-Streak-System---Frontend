@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://smart-habit-tracker-streak-system-q.vercel.app"
+  baseURL: "https://smart-habit-tracker-streak-system-q.vercel.app/api",
 });
 
 API.interceptors.request.use((req) => {
