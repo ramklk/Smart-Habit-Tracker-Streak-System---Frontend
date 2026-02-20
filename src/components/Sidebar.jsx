@@ -1,9 +1,13 @@
 import React from "react";
 import { LayoutDashboard, BarChart3, LogOut } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useAuth } from "../context/AuthContext";
 
 const Sidebar = () => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
   return (
     <motion.div
       initial={{ x: -50, opacity: 0 }}
@@ -32,7 +36,13 @@ const Sidebar = () => {
           Stats
         </NavLink>
 
-        <button className="flex items-center gap-3 p-2 rounded-lg text-red-500 hover:bg-red-100 dark:hover:bg-red-800 transition w-full text-left">
+        <button
+          onClick={() => {
+            logout();
+            navigate("/login");
+          }}
+          className="flex items-center gap-3 p-2 rounded-lg text-red-500 hover:bg-red-100 dark:hover:bg-red-800 transition w-full text-left"
+        >
           <LogOut size={18} />
           Logout
         </button>
