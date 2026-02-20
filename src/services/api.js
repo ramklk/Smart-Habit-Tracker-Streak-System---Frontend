@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://smart-habit-tracker-streak-system-backend.onrender.com/api",
+  baseURL:
+    "https://smart-habit-tracker-streak-system-backend.onrender.com/api",
 });
 
 API.interceptors.request.use((req) => {
